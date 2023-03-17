@@ -3,16 +3,19 @@ from bs4 import BeautifulSoup
 
 
 def take_word(word):
-    url = requests.get(f'https://wooordhunt.ru/word/{word}')
+    url = requests.get(f"https://wooordhunt.ru/word/{word}")
     resp_check = url.text
-    soup = BeautifulSoup(resp_check, 'html.parser')
+    soup = BeautifulSoup(resp_check, "html.parser")
     try:
         translate = soup.find("div", class_="t_inline_en").text
-        transcript = soup.find("span", class_="transcription",
-                               title=f"британская транскрипция слова {word}").text
-        return (f"{word}{transcript} {translate}")
+        transcript = soup.find(
+            "span",
+            class_="transcription",
+            title=f"британская транскрипция слова {word}",
+        ).text
+        return f"{word}{transcript} {translate}"
     except:
-        return (word)
+        return word
 
 
 file = open("./words.txt", "r")
@@ -33,5 +36,5 @@ for word in words:
     print(f"{count}. {word_info}")
     count += 1
 file.write("\nСледующие номера слов не были найдены:\n")
-file.write('\n'.join(notfound))
+file.write("\n".join(notfound))
 file.close()
