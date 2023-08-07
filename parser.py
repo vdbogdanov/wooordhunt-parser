@@ -18,14 +18,14 @@ def take_word(word):
         return word
 
 
-file = open("./words.txt", "r")
+file = open("data/words.txt", "r")
 words = [i.strip() for i in file.readlines()]
 file.close()
 
-file = open("./readywords.txt", "w")
+file = open("data/readywords.txt", "w")
 file.close()
 
-file = open("./readywords.txt", "a")
+file = open("data/readywords.txt", "a")
 count = 1
 notfound = []
 for word in words:
