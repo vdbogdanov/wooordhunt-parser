@@ -32,10 +32,10 @@ pip install -r requirements.txt
 
 ## Usage
 
-First, specify the words in the file `/src/words.txt` in a column, the transcription and translation of which you need to get. Then run python script:
+First, specify the words in the file `data/words.txt` in a column, the transcription and translation of which you need to get. Then run python script:
 
 ```
 python wooordhunt_parser.py
 ```
 
-then the output of the execution result will be displayed in the file `/src/readywords.txt`
+then the output of the execution result will be displayed in the file `data/readywords.txt`
